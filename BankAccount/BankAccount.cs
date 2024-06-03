@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Threading.Channels;
+using System.Xml.Serialization;
 
 namespace BankAccount
 {
@@ -10,12 +11,28 @@ namespace BankAccount
         public float Balance { get; private set; }
 
         // Konstruktor
-        public BankAccount(string number, string owner, float initialBalance)
+        public BankAccount()
         {
-            Number = number;
-            Owner = owner;
-            Balance = initialBalance;
+            Number =  this.Number;
+            Owner = this.Owner;
+            Balance = this.Balance;
+
         }
+
+        // Methode für die Erstellung eines Kontos
+        public void CreateAccount()
+        {
+            Console.WriteLine("Bitte geben Sie IHren Namen an:");
+            Owner = Console.ReadLine();
+
+            Console.WriteLine("Bitte geben Sie Ihre Kontonummer an:");
+            Number = Console.ReadLine();
+
+            Console.WriteLine("Bitte geben Sie den Betrag ein, den Sie einzahlen möchten:");
+            Balance = float.Parse(Console.ReadLine());
+        }   
+
+
 
         // Methode für Einzahlung
         public void makeDeposit(float amount)

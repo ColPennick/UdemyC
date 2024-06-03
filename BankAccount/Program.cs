@@ -11,17 +11,19 @@ namespace BankAccount
     {
         static void Main(string[] args)
         {
-            BankAccount account = new BankAccount("123456789", "Max Mustermann", 100);
+            BankAccount account = new BankAccount();
 
             account.PrintBankBanner();
             while (true)
             {
                 // Menü
                 Console.WriteLine("Bitte wählen Sie eine Aktion aus:");
+                Console.WriteLine("---------------------------------");
                 Console.WriteLine("1) Kontostand anzeigen");
                 Console.WriteLine("2) Einzahlung");
                 Console.WriteLine("3) Auszahlung");
                 Console.WriteLine("4) Beenden");
+                Console.WriteLine("5) Neues Konto anlegen");
 
                 // Eingabe
                 string input = Console.ReadLine();
@@ -50,6 +52,11 @@ namespace BankAccount
                 else if (input == "4")
                 {
                     break;
+                }
+                else if (input == "5")
+                {
+                    Console.Clear();
+                    account.CreateAccount();
                 }
                 else
                 {

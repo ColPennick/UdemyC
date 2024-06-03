@@ -10,7 +10,7 @@ namespace Car
         public int Year { get; private set; }
         public float FuelConsumptionRate { get; private set; }
         
-        // KOnstruktor
+        // Konstruktor
         public Car(string brand, string model, int year, float fuelConsumptionRate)
         {
             Brand = brand;
@@ -53,7 +53,8 @@ namespace Car
         // Methode zum Anzeigen des Verbrauchs
         public string GetFuelConsumption(int kilometres)
         {
-            return $"Der Verbrauch des {Model}s für {kilometres} km beträgt {CalculateFuelConsumption(kilometres)} Liter.\n";
+            return $"Der Verbrauch des {Model}s auf {kilometres} km beträgt {CalculateFuelConsumption(kilometres)} Liter.\n";
         }
+
     }
 }

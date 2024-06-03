@@ -1,4 +1,6 @@
-﻿namespace Car
+﻿using System.Runtime.CompilerServices;
+
+namespace Car
 {
     internal class Hauptklasse
     {
@@ -22,7 +24,8 @@
             Console.WriteLine("Objekt Methode\n" + golf.GetFullInfo());
 
             // Verbrauch abfrgaen
-            Console.WriteLine(golf.GetFuelConsumption(200) + mustang.GetFuelConsumption(200));
+           int distance = 175;
+            Console.WriteLine(golf.GetFuelConsumption(distance) + mustang.GetFuelConsumption(distance));
 
 
         }
