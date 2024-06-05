@@ -8,6 +8,10 @@ Welcome to my personal repository for the Udemy C# online course! This repositor
 
 This repository is a collection of exercises, projects, and notes from the Udemy course on C#. It's designed to help reinforce learning through practical application.
 
+If you're interested, I recommend you check out the corresponding course [C# Bootcamp 2023: Vom Anfänger bis zum Profi](https://www.udemy.com/share/103dty3@yiqCr_yTZdHwRKyZKbv-yndzV52hd_2OiIu5cSle3-yDRWbOP1Pj7R7aqzaIYc5dzg==/).
+Be advised, it's german and not free of charge.
+
+
 ## Course Structure
 
 The repository is organized into the following sections:
