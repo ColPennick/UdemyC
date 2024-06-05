@@ -22,22 +22,44 @@ namespace WeatherApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Open Wweather map API key
+        // Open Weather map API key (note: no access to disposable account anymore)
         private readonly string apiKey = "fc138847386ac470bb11af28130be1c2";
 
-        // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+        /*
+        Important quote regarding the geocoding used in this code:
+ 
+        "Please use Geocoder API if you need automatic convert city names and zip-codes to
+        geo coordinates and the other way around.
+
+        Please note that API requests by city name, zip-codes and city id have been
+        deprecated. Although they are still available for use, bug fixing and updates are
+        no longer available for this functionality."
+         */
+
+        // URL scheme:  https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
         private string requestUrl = "https://api.openweathermap.org/data/2.5/weather";
 
         public MainWindow()
         {
             InitializeComponent();
-            WeatherMapResponse result =  GetWeatherData("Paris");
+            WeatherMapResponse result =  GetWeatherData("Bremen");
 
 
             string finalImage = "Sun.png"; // Fallback Image
-            string currentWeather = result.weather[0].main.ToLower();
+            string currentWeather = result.weather[0].description.ToLower();
 
-            if (currentWeather.Contains("snow"))
+            /*
+            OpenWeatherMap API Weather Conditions (example clouds)
+            https://openweathermap.org/weather-conditions
+            Group 80x: Clouds
+            801 	Clouds 	few clouds: 11-25% 	
+            802 	Clouds 	scattered clouds: 25-50% 	
+            803 	Clouds 	broken clouds: 51-84% 	
+            804 	Clouds 	overcast clouds: 85-100% 	
+            */
+
+            // Set the background image according to the weathercondition     
+            if (currentWeather.Contains("snow") || currentWeather.Contains("sleet"))
             {
                 finalImage = "Snow.png";
             }
@@ -45,17 +67,18 @@ namespace WeatherApp
             {
                 finalImage = "Rain.png";
             }
-            else if (currentWeather.Contains("cloud"))
+            else if (currentWeather.Contains("overcast clouds") || currentWeather.Contains("broken clouds") || currentWeather.Contains("scattered clouds"))
             {
                 finalImage = "Cloud.png";
             }
             backgoundImage.ImageSource = new BitmapImage(new Uri("Images/"+finalImage,UriKind.Relative));
 
+            // Set the values to the XAML labels
             labelTemperature.Content = result.main.temp.ToString("F1") + "°C";
-            labelInfo.Content = result.weather[0].main;
-
-
+            labelInfo.Content = result.weather[0].description;
         }
+
+        // Get Weather Data from OpenWeatherMap API by city name
         public WeatherMapResponse GetWeatherData(string city)
         {
             HttpClient httpClient = new HttpClient();
