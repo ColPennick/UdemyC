@@ -42,10 +42,15 @@ namespace WeatherApp
         public MainWindow()
         {
             InitializeComponent();
-            WeatherMapResponse result =  GetWeatherData("Bremen");
+            UpdateData("Berlin"); // start app with a default city (default textBox text "Berlin" was set separately)
+        }
 
+        // Update the UI with the weather data
+        public void UpdateData(string city)
+        {
+            WeatherMapResponse result = GetWeatherData(city);
 
-            string finalImage = "Sun.png"; // Fallback Image
+            string finalImage = "Sun.png"; // default image
             string currentWeather = result.weather[0].description.ToLower();
 
             /*
@@ -71,7 +76,7 @@ namespace WeatherApp
             {
                 finalImage = "Cloud.png";
             }
-            backgoundImage.ImageSource = new BitmapImage(new Uri("Images/"+finalImage,UriKind.Relative));
+            backgoundImage.ImageSource = new BitmapImage(new Uri("Images/" + finalImage, UriKind.Relative));
 
             // Set the values to the XAML labels
             labelTemperature.Content = result.main.temp.ToString("F1") + "°C";
@@ -82,16 +87,20 @@ namespace WeatherApp
         public WeatherMapResponse GetWeatherData(string city)
         {
             HttpClient httpClient = new HttpClient();
-
             var finalUri = requestUrl + "?q=" + city + "&appid=" + apiKey + "&units=metric";
-
             HttpResponseMessage httpResponse = httpClient.GetAsync(finalUri).Result; // Async ist asynchron und blockiert nicht den Hauptthread während der Anfrage an den Server
-
             string response = httpResponse.Content.ReadAsStringAsync().Result;
-
-            // Parse JSON
+            // Parse JSON to WeatherMapResponse object
             WeatherMapResponse weatherMapResponse = JsonConvert.DeserializeObject<WeatherMapResponse>(response);
             return weatherMapResponse;
         }
+
+        // Button Click Event Handler
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string query = textBoxQuery.Text;
+            UpdateData(query);
+        }
+
     }
 }
