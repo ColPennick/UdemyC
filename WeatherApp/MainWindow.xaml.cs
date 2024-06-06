@@ -42,6 +42,8 @@ namespace WeatherApp
         public MainWindow()
         {
             InitializeComponent();
+            this.Title = "Colonel Pennicks Garbage Weather App";
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/WeatherApp;component/Images/favicon.ico")); // AI generated favicon.ico contains 16,32,48,256px icons
             UpdateData("Berlin"); // start app with a default city (default textBox text "Berlin" was set separately)
         }
 

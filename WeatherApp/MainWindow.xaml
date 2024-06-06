@@ -71,7 +71,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
@@ -85,13 +85,13 @@
             <ImageBrush x:Name="backgoundImage" ImageSource="/WeatherApp;component/images/Sun.png">
             </ImageBrush>
         </Grid.Background>
-        
+
         <Label x:Name="labelTemperature" Grid.Row="3"  Grid.Column="1" Content="°C" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" FontWeight="Bold" Foreground="White">
             <Label.Effect>
                 <DropShadowEffect ShadowDepth="5" BlurRadius="2" Color="#FF252525" Opacity="0.95"/>
             </Label.Effect>
         </Label>
-        
+
         <Label x:Name="labelInfo" Grid.Row="4"  Grid.Column="1" Content="no data" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="35" Foreground="White">
             <Label.Effect>
                 <DropShadowEffect ShadowDepth="3" BlurRadius="2" Color="#FF252525" Opacity="0.95"/>
@@ -99,20 +99,26 @@
         </Label>
 
         <!--textbox with ROUND corners-->
-        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="5" CornerRadius="25" BorderThickness="1" Background="#B2FFFFFF">
-            <TextBox x:Name="textBoxQuery" KeyDown="TextBoxQuery_KeyDown" Text="Berlin" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontStyle="Italic"/>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="5" CornerRadius="25" BorderThickness="1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#4CFFFFFF"/>
+                    <GradientStop Color="#CCFFFFFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <TextBox x:Name="textBoxQuery" KeyDown="TextBoxQuery_KeyDown" Text="Berlin" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontStyle="Italic" Foreground="#FF3A3A3A"/>
         </Border>
-        
+
         <!--Button with ROUND corners-->
-            <Border Grid.Row="1" Grid.Column="4"  Padding="5" CornerRadius="10" BorderThickness="1" Background="White">
-                
-                <Border.Effect>
-                    <DropShadowEffect/>
-                </Border.Effect>
-                
-            <!--Mousecursor will transform to handsymbol on mousehover(built in)-->    
+        <Border Grid.Row="1" Grid.Column="4"  Padding="5" CornerRadius="10" BorderThickness="1" Background="White">
+
+            <Border.Effect>
+                <DropShadowEffect/>
+            </Border.Effect>
+
+            <!--Mousecursor will transform to handsymbol on mousehover(built in)-->
             <Button Click="Button_Click"  Style="{DynamicResource ButtonStyle1}" Cursor="Hand" Background="Transparent" BorderThickness="0" Content="Update" FontSize="20">
-                
+
             </Button>
         </Border>
 
