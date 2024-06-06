@@ -100,7 +100,7 @@
 
         <!--textbox with ROUND corners-->
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Padding="5" CornerRadius="25" BorderThickness="1" Background="#B2FFFFFF">
-            <TextBox x:Name="textBoxQuery" Text="Berlin" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontStyle="Italic"/>
+            <TextBox x:Name="textBoxQuery" KeyDown="TextBoxQuery_KeyDown" Text="Berlin" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontStyle="Italic"/>
         </Border>
         
         <!--Button with ROUND corners-->

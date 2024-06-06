@@ -23,7 +23,7 @@ namespace WeatherApp
     public partial class MainWindow : Window
     {
         // Open Weather map API key (note: no access to disposable account anymore)
-        private readonly string apiKey = "fc138847386ac470bb11af28130be1c2";
+        private readonly string apiKey = "fc138847386ac470bb11af28130be1c2"; // I'm aware, this is very bad practice. idc in this case.
 
         /*
         Important quote regarding the geocoding used in this code:
@@ -100,6 +100,16 @@ namespace WeatherApp
         {
             string query = textBoxQuery.Text;
             UpdateData(query);
+        }
+
+        // KeyDown (Enter) Event Handler
+        private void TextBoxQuery_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string query = textBoxQuery.Text;
+                UpdateData(query);
+            }
         }
 
     }
