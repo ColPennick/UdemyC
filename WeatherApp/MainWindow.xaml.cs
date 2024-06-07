@@ -51,6 +51,10 @@ namespace WeatherApp
         public void UpdateData(string city)
         {
             WeatherMapResponse result = GetWeatherData(city);
+            if (result.main == null) {
+                throw new Exception("City not found");
+                textBoxQuery.Text = "City not found";
+            }
 
             string finalImage = "Sun.png"; // default image
             string currentWeather = result.weather[0].description.ToLower();
