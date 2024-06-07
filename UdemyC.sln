@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lists", "Lists\Lists.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp.csproj", "{002DD0A1-7F87-4B51-8E15-DF21B6D1DBCB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictionaries", "Disctionaries\Dictionaries.csproj", "{9B9A753A-766B-4016-8DFD-3C7119137A40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{9B9A753A-766B-4016-8DFD-3C7119137A40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwitchAndEnum", "SwitchAndEnum\SwitchAndEnum.csproj", "{6B754337-9F7F-4B55-A8EB-D2F1E6783B60}"
 EndProject
